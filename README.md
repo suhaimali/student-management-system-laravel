@@ -1,7 +1,7 @@
-# 🎓 Student & Academy Management System
+# 🎓 Student & Academy Management System (Laravel 12)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="300" alt="Laravel Logo">
+  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="320" alt="Laravel Logo">
 </p>
 
 <p align="center">
@@ -9,59 +9,80 @@
   <img src="https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
   <img src="https://img.shields.io/badge/MySQL-8.0+-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
   <img src="https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
+  <img src="https://img.shields.io/badge/Status-Complete%20%26%20Working-success?style=for-the-badge" alt="Status">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
 </p>
 
-A modern **Student & Academy Management System (ERP)** built with **Laravel**, **MySQL**, and the **Skydash Admin Dashboard Template**. It provides a comprehensive solution for educational institutions to manage students, employees, branches, geographical locations, and customer enquiries.
+A production-ready **Student & Academy Management System (ERP)** built with **Laravel 12**, **MySQL**, and the **Skydash Admin Dashboard Template**. It provides full CRUD workflows for managing students, employees, branches, geographic regions (countries, states, cities), and admission enquiries.
 
 ---
 
-## 📌 Features & Modules
+## ⚡ 1-Minute Automated Setup (Fast Run)
 
-- 👨‍🎓 **Student Management:**
-  - View all registered students
-  - Add new students with details (Name, Email, Phone, Address, Class, Aadhar Card Number, Status)
-- 👔 **Employee Management:**
-  - Complete Employee records (Name, Email, Phone, Department, Salary, Joining Date, Address)
-  - Auto-generated timestamps (`created_at`, `updated_at`) and automatic current joining dates
-- 🏢 **Branch Management:**
-  - Multi-branch support with branch code, phone, address, and status
-- 🗺️ **Geographical Master Data:**
-  - **Country Management** (Add & list countries)
-  - **State Management** (Add & list states)
-  - **City Management** (Add & list cities)
-- 📩 **Enquiry Management:**
-  - Capture and list public/admission enquiries (Name, Email, Message)
-- 📊 **Responsive Dashboard:**
-  - Powered by Skydash Admin Dashboard with charts, tables, and responsive mobile-ready sidebar
+If you already have PHP, Composer, and MySQL (XAMPP) running, run this single line in your terminal inside the project directory:
+
+### For Windows (PowerShell):
+```powershell
+composer install; if (!(Test-Path .env)) { copy .env.example .env }; php artisan key:generate; php artisan migrate; php artisan serve
+```
+
+### For Linux / macOS (Bash):
+```bash
+composer install && cp -n .env.example .env && php artisan key:generate && php artisan migrate && php artisan serve
+```
 
 ---
 
-## 🛠️ Tech Stack
+## 📌 Features & Modules Overview
 
-- **Backend Framework:** [Laravel 12](https://laravel.com)
-- **Programming Language:** PHP 8.2+
-- **Database:** MySQL
-- **Frontend / UI:** Blade Templating, Bootstrap 5, Skydash Admin Template
-- **Icons & Assets:** Feather Icons, Themify Icons, Material Design Icons (MDI)
+| Module | Features & Capabilities | Route Name |
+|---|---|---|
+| **Student Management** | Register students with name, email, contact, class, address, Aadhar ID, and status | `student`, `student.create` |
+| **Employee Management** | Manage staff with salary, department, auto current joining date, address, phone | `employee`, `employee.create` |
+| **Branch Management** | Multi-branch academy support with unique code, contact phone, address, and status | `branch`, `branch.create` |
+| **City Management** | Manage cities linked to geographical hierarchy | `city`, `city.create` |
+| **State Management** | State directory with validation and unique checks | `state`, `state.create` |
+| **Country Management** | Country directory with validation and unique checks | `country`, `country.create` |
+| **Enquiry Management** | Public & prospective student lead generation with name, email, and messages | `enquiry`, `enquiry.create` |
+| **Admin Dashboard** | Fully responsive layout powered by Skydash Admin Template with dark/light navbar | `dashboard` |
+
+---
+
+## 🤖 Automated Database Features (Built-In)
+
+- **Auto-Timestamps:** `created_at` and `updated_at` automatically record current timestamp (`CURRENT_TIMESTAMP`) without manual input.
+- **Auto Current Date:** `joining_date` in employees automatically defaults to today's date if left blank.
+- **Auto Primary Keys:** `id` is auto-incrementing; no need to manually specify IDs.
+- **Auto Default Status:** `status` defaults to `'1'` (Active) for students and branches.
+- **Dynamic Salary Support:** `salary` is stored as `VARCHAR(50)`, supporting numeric amounts (e.g. `50000`) or formatted strings (e.g. `1.5k`, `$2,500/mo`).
+
+---
+
+## 🛠️ Complete Tech Stack
+
+- **Backend:** [Laravel 12.x](https://laravel.com)
+- **Language:** PHP 8.2+
+- **Database:** MySQL 8.0+ / MariaDB
+- **ORM:** Eloquent ORM
+- **Frontend Engine:** Laravel Blade Templating
+- **UI Framework:** Bootstrap 5.x & Skydash Admin Dashboard
+- **Icons:** Feather Icons, Themify Icons, Material Design Icons (MDI)
 
 ---
 
 ## 🚀 Beginner's Step-by-Step Installation Guide
 
-Follow these instructions step by step to run this project on your local machine:
+Follow these exact steps to set up the project on your local machine:
 
 ### 1. Prerequisites
-Make sure you have installed on your computer:
-- [PHP](https://www.php.net) (Version 8.2 or higher)
-- [Composer](https://getcomposer.org)
-- [XAMPP](https://www.apachefriends.org) or any MySQL database server
-- [Git](https://git-scm.com)
+- **PHP** >= 8.2 (Check with `php -v`)
+- **Composer** (Check with `composer -V`)
+- **MySQL / XAMPP** (Start Apache & MySQL in XAMPP Control Panel)
+- **Git** (Check with `git --version`)
 
 ---
 
 ### 2. Clone the Repository
-Open your terminal or command prompt and run:
 ```bash
 git clone https://github.com/suhaimali/student-management-system-laravel.git
 cd student-management-system-laravel
@@ -69,7 +90,7 @@ cd student-management-system-laravel
 
 ---
 
-### 3. Install PHP Dependencies
+### 3. Install Composer Dependencies
 ```bash
 composer install
 ```
@@ -77,11 +98,10 @@ composer install
 ---
 
 ### 4. Setup Environment File
-Copy the example environment file:
-```bash
-cp .env.example .env
-```
-*(On Windows Command Prompt, use: `copy .env.example .env`)*
+Copy `.env.example` to create your local `.env`:
+- **Windows (Command Prompt):** `copy .env.example .env`
+- **Windows (PowerShell):** `Copy-Item .env.example .env`
+- **Linux/Mac:** `cp .env.example .env`
 
 ---
 
@@ -92,11 +112,10 @@ php artisan key:generate
 
 ---
 
-### 6. Configure MySQL Database
-1. Open XAMPP and start **Apache** and **MySQL**.
-2. Go to **phpMyAdmin** (`http://localhost/phpmyadmin`).
-3. Create a new database named **`emr_software`** (or your preferred name).
-4. Open your `.env` file and set your database credentials:
+### 6. Configure Database in `.env`
+1. Open **phpMyAdmin** (`http://localhost/phpmyadmin`).
+2. Create a new database named **`emr_software`** (utf8mb4_unicode_ci).
+3. Verify your `.env` file matches:
 ```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -109,10 +128,11 @@ DB_PASSWORD=
 ---
 
 ### 7. Run Database Migrations
-Create all tables automatically with all required columns:
+This automatically creates all 7 tables with all columns and constraints:
 ```bash
 php artisan migrate
 ```
+*(If starting completely fresh, you can run `php artisan migrate:fresh`)*
 
 ---
 
@@ -120,93 +140,110 @@ php artisan migrate
 ```bash
 php artisan serve
 ```
-
-Now open your browser and navigate to:
+Open your browser and visit:  
 👉 **`http://127.0.0.1:8000`**
 
 ---
 
-## 🧭 Application Routes
+## 🧭 Complete Routing & Navigation Directory
 
-| Module | List Page URL | Add / Create URL |
-|---|---|---|
-| **Dashboard** | `http://127.0.0.1:8000/` | - |
-| **Students** | `http://127.0.0.1:8000/student` | `http://127.0.0.1:8000/student-create` |
-| **Employees** | `http://127.0.0.1:8000/employee` | `http://127.0.0.1:8000/employee-create` |
-| **Branches** | `http://127.0.0.1:8000/branch` | `http://127.0.0.1:8000/branch-create` |
-| **Enquiries** | `http://127.0.0.1:8000/enquiry` | `http://127.0.0.1:8000/enquiry-create` |
-| **Countries** | `http://127.0.0.1:8000/country` | `http://127.0.0.1:8000/create-country` |
-| **States** | `http://127.0.0.1:8000/state` | `http://127.0.0.1:8000/create-state` |
-| **Cities** | `http://127.0.0.1:8000/city` | `http://127.0.0.1:8000/create-city` |
-
----
-
-## 🗄️ Database Tables Structure
-
-### `employees` Table
-| Column | Type | Description |
-|---|---|---|
-| `id` | `BIGINT UNSIGNED` | Primary Key (Auto-increment) |
-| `name` | `VARCHAR(255)` | Employee Name |
-| `email` | `VARCHAR(255)` | Unique Email |
-| `phone` | `VARCHAR(20)` | Phone Number |
-| `department`| `VARCHAR(255)` | Department name |
-| `salary` | `VARCHAR(50)` | Salary (Supports 50000 or 1.5k) |
-| `joining_date` | `DATE` | Default Current Date |
-| `address` | `TEXT` | Full Address |
-| `created_at` | `TIMESTAMP` | Auto Current Timestamp |
-| `updated_at` | `TIMESTAMP` | Auto Current Timestamp |
-
-### `students` Table
-| Column | Type | Description |
-|---|---|---|
-| `id` | `BIGINT UNSIGNED` | Primary Key |
-| `name` | `VARCHAR(255)` | Student Name |
-| `email` | `VARCHAR(255)` | Unique Email |
-| `phone` | `VARCHAR(20)` | Contact Number |
-| `address` | `TEXT` | Residential Address |
-| `class` | `VARCHAR(50)` | Enrolled Class/Course |
-| `aadhar_card_number` | `VARCHAR(50)` | Identification Number |
-| `status` | `VARCHAR(10)` | Status (1 = Active) |
-
-### `branches` Table
-| Column | Type | Description |
-|---|---|---|
-| `id` | `BIGINT UNSIGNED` | Primary Key |
-| `name` | `VARCHAR(255)` | Unique Branch Name |
-| `code` | `VARCHAR(50)` | Unique Branch Code |
-| `phone` | `VARCHAR(20)` | Branch Contact |
-| `address` | `TEXT` | Branch Location |
-| `status` | `VARCHAR(10)` | Active / Inactive |
+| Module | List / View URL | Add / Create Form URL | Form Action (POST) |
+|---|---|---|---|
+| **Dashboard** | `http://127.0.0.1:8000/` | — | — |
+| **Students** | `http://127.0.0.1:8000/student` | `http://127.0.0.1:8000/student-create` | `/student-store` |
+| **Employees** | `http://127.0.0.1:8000/employee` | `http://127.0.0.1:8000/employee-create` | `/employee-store` |
+| **Branches** | `http://127.0.0.1:8000/branch` | `http://127.0.0.1:8000/branch-create` | `/branch-store` |
+| **Enquiries** | `http://127.0.0.1:8000/enquiry` | `http://127.0.0.1:8000/enquiry-create` | `/enquiry-store` |
+| **Countries** | `http://127.0.0.1:8000/country` | `http://127.0.0.1:8000/create-country` | `/country-store` |
+| **States** | `http://127.0.0.1:8000/state` | `http://127.0.0.1:8000/create-state` | `/state-store` |
+| **Cities** | `http://127.0.0.1:8000/city` | `http://127.0.0.1:8000/create-city` | `/city-store` |
 
 ---
 
-## 📁 Directory Architecture (MVC)
+## 🗄️ Database Tables & Schema Reference
+
+### 1. `employees`
+| Column | Type | Nullable | Description |
+|---|---|---|---|
+| `id` | `BIGINT UNSIGNED` | No | Auto-incrementing Primary Key |
+| `name` | `VARCHAR(255)` | No | Full Name |
+| `email` | `VARCHAR(255)` | No | Unique Email |
+| `phone` | `VARCHAR(20)` | Yes | Contact Phone |
+| `department` | `VARCHAR(255)` | Yes | Department (e.g. General Medicine) |
+| `salary` | `VARCHAR(50)` | Yes | Salary (Accepts 50000 or 1.5k) |
+| `joining_date` | `DATE` | No | Defaults to `CURRENT_DATE` |
+| `address` | `TEXT` | Yes | Home Address |
+| `created_at` | `TIMESTAMP` | No | Defaults to `CURRENT_TIMESTAMP` |
+| `updated_at` | `TIMESTAMP` | No | Defaults to `CURRENT_TIMESTAMP ON UPDATE` |
+
+### 2. `students`
+| Column | Type | Nullable | Description |
+|---|---|---|---|
+| `id` | `BIGINT UNSIGNED` | No | Primary Key |
+| `name` | `VARCHAR(255)` | No | Student Name |
+| `email` | `VARCHAR(255)` | No | Unique Email |
+| `phone` | `VARCHAR(20)` | Yes | Phone Number |
+| `address` | `TEXT` | Yes | Address |
+| `class` | `VARCHAR(50)` | Yes | Enrolled Class / Batch |
+| `aadhar_card_number` | `VARCHAR(50)` | Yes | Aadhar Card / Government ID |
+| `status` | `VARCHAR(10)` | Yes | Status (Default `'1'` = Active) |
+| `created_at` / `updated_at` | `TIMESTAMP` | Yes | Standard Timestamps |
+
+### 3. `branches`
+| Column | Type | Nullable | Description |
+|---|---|---|---|
+| `id` | `BIGINT UNSIGNED` | No | Primary Key |
+| `name` | `VARCHAR(255)` | No | Unique Branch Name |
+| `code` | `VARCHAR(50)` | No | Unique Branch Code |
+| `phone` | `VARCHAR(20)` | Yes | Branch Phone |
+| `address` | `TEXT` | Yes | Branch Location |
+| `status` | `VARCHAR(10)` | Yes | Default `'1'` (Active) |
+| `created_at` / `updated_at` | `TIMESTAMP` | Yes | Standard Timestamps |
+
+### 4. `countries`, `states`, `cities`
+| Column | Type | Description |
+|---|---|---|
+| `id` | `BIGINT UNSIGNED` | Primary Key |
+| `name` | `VARCHAR(255)` | Unique Name |
+| `created_at` / `updated_at` | `TIMESTAMP` | Auto Timestamps |
+
+### 5. `enquiries`
+| Column | Type | Description |
+|---|---|---|
+| `id` | `BIGINT UNSIGNED` | Primary Key |
+| `name` | `VARCHAR(255)` | Prospect Name |
+| `email` | `VARCHAR(255)` | Contact Email |
+| `message` | `TEXT` | Enquiry Message |
+| `created_at` / `updated_at` | `TIMESTAMP` | Auto Timestamps |
+
+---
+
+## 📂 Project Architecture (MVC)
 
 ```text
 studentmanagmnetsystem/
 ├── app/
 │   ├── Http/Controllers/
-│   │   └── HomeController.php       # Controller handles all CRUD requests
+│   │   └── HomeController.php       # Controller handling all CRUD operations
 │   └── Models/
-│       ├── Employee.php             # Employee Eloquent Model
-│       ├── Student.php              # Student Eloquent Model
-│       ├── Branch.php               # Branch Eloquent Model
-│       ├── Country.php              # Country Eloquent Model
-│       ├── State.php                # State Eloquent Model
-│       ├── City.php                 # City Eloquent Model
-│       └── Enquiry.php              # Enquiry Eloquent Model
+│       ├── Employee.php             # Employee Model ($table = 'employees')
+│       ├── Student.php              # Student Model
+│       ├── Branch.php               # Branch Model
+│       ├── Country.php              # Country Model
+│       ├── State.php                # State Model
+│       ├── City.php                 # City Model
+│       └── Enquiry.php              # Enquiry Model
 ├── database/
-│   └── migrations/                  # Database table definitions
+│   └── migrations/                  # Schema migration files for all 7 tables
 ├── resources/
 │   └── views/
-│       ├── employee/                # Employee index & create blade templates
-│       ├── Student/                 # Student index & create blade templates
-│       ├── branch/                  # Branch index & create blade templates
-│       ├── enquiry/                 # Enquiry index & create blade templates
-│       ├── country/                 # Country index & create blade templates
-│       ├── state/                   # State index & create blade templates
-│       ├── City/                    # City index & create blade templates
+│       ├── employee/                # Employee index.blade.php & create.blade.php
+│       ├── Student/                 # Student index.blade.php & create.blade.php
+│       ├── branch/                  # Branch index.blade.php & create.blade.php
+│       ├── City/                    # City index.blade.php & create.blade.php
+│       ├── state/                   # State index.blade.php & create.blade.php
+│       ├── country/                 # Country index.blade.php & create.blade.php
+│       ├── enquiry/                 # Enquiry index.blade.php & create.blade.php
 │       └── inc/                     # Reusable header, sidebar, footer partials
 └── routes/
     └── web.php                      # Application Web Routes
@@ -214,19 +251,31 @@ studentmanagmnetsystem/
 
 ---
 
-## 🤝 Contributing
+## 💡 Troubleshooting & Common Fixes
 
-Contributions, issues, and feature requests are welcome!
-Feel free to check the [issues page](https://github.com/suhaimali/student-management-system-laravel/issues).
+| Issue / Error | Cause | Solution |
+|---|---|---|
+| **SQLSTATE[42S22] Unknown column** | Missing columns in migration | Defined all columns in migrations and ran `php artisan migrate:fresh`. |
+| **#1265 Data truncated for 'salary'** | Salary was `DECIMAL(10,2)` and `'1.5k'` was inserted | Changed column to `string('salary', 50)` to support numbers & text. |
+| **#1062 Duplicate entry for PRIMARY** | Manually typing `id = 1` in phpMyAdmin | Leave `id` completely blank; MySQL auto-increments it automatically. |
+| **Class "Employee" not found** | Model file was named `employess.php` | Created `app/Models/Employee.php` with `protected $table = 'employees'`. |
+
+---
+
+## 🤝 Contributing & Support
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/NewFeature`)
+3. Commit your Changes (`git commit -m 'Add some NewFeature'`)
+4. Push to the Branch (`git push origin feature/NewFeature`)
+5. Open a Pull Request
 
 ---
 
 ## 📄 License
 
-This project is open-sourced software licensed under the [MIT License](LICENSE).
-
----
+This project is open-source and licensed under the [MIT License](LICENSE).
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/suhaimali">Suhaim Ali</a>
+  Crafted with ❤️ by <a href="https://github.com/suhaimali">Suhaim Ali</a>
 </p>
