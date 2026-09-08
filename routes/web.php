@@ -44,3 +44,6 @@ Route::post('/branch-store', [HomeController::class, 'StoreBranch'])
 Route::get('/employee', [HomeController::class, 'Employee'])->name('employee');
 Route::get('/employee-create', [HomeController::class, 'CreateEmployee'])->name('employee.create');
 Route::post('/employee-store', [HomeController::class, 'StoreEmployee'])->name('store.employee');
+Route::get('/product', [HomeController::class, 'Product'])->name('product');
+Route::get('/product-create', [HomeController::class, 'CreateProduct'])->name('product.create');
+Route::post('/product-store', [HomeController::class, 'StoreProduct'])->name('store.product');

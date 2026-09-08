@@ -10,6 +10,7 @@ use App\Models\City;
 use App\Models\Branch;
 use App\Models\Student;
 use App\Models\Employee;
+use App\Models\Product;
 class HomeController extends Controller
 {
     public function Enquiry()
@@ -18,6 +19,35 @@ class HomeController extends Controller
 
         return view('enquiry.index', compact('enquirydata'));
     }
+    public function Product()
+    {
+        $productdata = Product::latest()->get();
+
+        return view('products.index', compact('productdata'));
+    }
+
+    public function CreateProduct()
+    {
+        return view('products.create');
+    }
+
+    public function StoreProduct(Request $request)
+    {
+        $validated = $request->validate([
+            'product_name'      => 'required|string|max:255',
+            'product_code'      => 'required|string|max:100|unique:products,product_code',
+            'category'          => 'nullable|string|max:255',
+            'price'             => 'required|numeric|min:0',
+            'quantity'          => 'required|integer|min:0',
+            'description'       => 'nullable|string',
+            'manufacturing_date' => 'nullable|date',
+        ]);
+
+        Product::create($validated);
+
+        return redirect()->route('product')->with('success', 'Product has been Created');
+    }
+
 
     public function CreateEnquiry()
     {
@@ -189,4 +219,4 @@ class HomeController extends Controller
 
         return redirect()->route('student')->with('success', 'Student has been Created');
     }
-    }
+}

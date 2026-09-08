@@ -47,6 +47,13 @@
         <i class="icon-grid menu-icon"></i>
         <span class="menu-title">Employee</span>
       </a>
+      
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('product') }}">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Product</span>
+      </a>      
     </li>
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
